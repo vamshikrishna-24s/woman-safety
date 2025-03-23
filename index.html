@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - Women's Safety App</title>
+    <style>
+        /* Your existing CSS remains unchanged */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(135deg, #f8f2ff 0%, #e6d2ff 100%);
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .image-section {
+            flex: 1;
+            background-image: url('https://source.unsplash.com/random/1200x900/?women,safety');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(89, 0, 128, 0.1), rgba(89, 0, 128, 0.8));
+            z-index: 1;
+        }
+        .image-content {
+            position: relative;
+            z-index: 2;
+        }
+        .image-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .image-section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .form-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .logo-icon {
+            color: #7b2cbf;
+            font-size: 28px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7b2cbf;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 26px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-color: #7b2cbf;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(123, 44, 191, 0.1);
+        }
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .forgot-password a {
+            color: #7b2cbf;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .btn-login {
+            background-color: #7b2cbf;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .btn-login:hover {
+            background-color: #6a24a6;
+        }
+        .emergency-btn {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .emergency-btn:hover {
+            background-color: #d62b3a;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+        }
+        .divider span {
+            padding: 0 15px;
+            color: #777;
+            font-size: 14px;
+        }
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .social-btn:hover {
+            background-color: #f5f5f5;
+        }
+        .social-icon {
+            margin-right: 8px;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .signup-link a {
+            color: #7b2cbf;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 400px;
+                margin: 20px;
+            }
+            .image-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <div class="image-content">
+                <h2>Stay Safe. Stay Connected.</h2>
+                <p>SafeGuard provides instant access to safety features, emergency contacts, and community support to empower women wherever they go.</p>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <div class="logo">
+                <div class="logo-icon">🛡️</div>
+                <div class="logo-text">SafeGuard</div>
+            </div>
+            
+            <h1>Welcome Back</h1>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn-login">Log In</button>
+                <button type="button" class="emergency-btn">Emergency SOS</button>
+                
+                <div class="divider">
+                    <hr><span>OR</span><hr>
+                </div>
+                
+                <div class="social-login">
+                    <a href="#" class="social-btn">
+                        <span class="social-icon">G</span> Google
+                    </a>
+                    <a href="#" class="social-btn">
+                        <span class="social-icon">f</span> Facebook
+                    </a>
+                </div>
+                
+                <div class="signup-link">
+                    Don't have an account? <a href="#">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting normally
+            
+            // Get input values
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Define correct credentials (replace with your own)
+            const correctEmail = '238w1a12c0@gmail.com';
+            const correctPassword = '238w1a12c0';
+            
+            // Validation
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (email === correctEmail && password === correctPassword) {
+                // Redirect to your dashboard page
+                window.location.href = 'dashboard.html'; // Change this to your dashboard file name
+            } else {
+                alert('Invalid email or password. Please try again.');
+                document.getElementById('password').value = '';
+                document.getElementById('email').focus();
+            }
+        });
+    </script>
+</body>
+</html>

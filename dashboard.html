@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css"/>
+   
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🛡️</div>
+            <span>SafeGuard</span>
+        </div>
+        <div class="user-menu" id="userMenu">
+            <div class="user-avatar">S</div>
+            <div class="user-name">Sahara</div>
+            <div class="user-dropdown" id="userDropdown">
+                <a href="#" class="dropdown-item"><span class="dropdown-icon">👤</span>My Profile</a>
+                <a href="#" class="dropdown-item"><span class="dropdown-icon">🔐</span>Account Security</a>
+                <a href="#" class="dropdown-item"><span class="dropdown-icon">⚙️</span>Preferences</a>
+                <a href="#" class="dropdown-item"><span class="dropdown-icon">📋</span>Activity Log</a>
+                <a href="#" class="dropdown-item"><span class="dropdown-icon">🚪</span>Sign Out</a>
+            </div>
+        </div>
+    </header>
+
+    <br>
+    <div class="tabs-container">
+        <div class="emergency-bar">
+            <div class="emergency-text">
+                <h2>Need immediate help?</h2>
+                <p>Tap the Emergency SOS button to alert your contacts and authorities</p>
+            </div>
+            <button class="emergency-btn" id="emergencyBtn">
+                <span class="emergency-icon">🆘</span>
+                Emergency SOS
+            </button>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('home')">Home</div>
+            <div class="tab" onclick="showTab('contacts')">Trusted Contacts</div>
+            <div class="tab" onclick="showTab('map')">Map</div>
+            <div class="tab" onclick="showTab('settings')">Settings</div>
+        </div>
+    </div>
+
+    <!-- Home Tab -->
+    <div id="home" class="tab-content active">
+        <div class="carousel-container">
+            <div class="carousel-header">SafeGuard Safety Tips</div>
+            <div class="carousel-wrapper">
+                <div class="carousel-content">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="carousel-track">
+                        <div class="carousel-item active">
+                            <div class="carousel-icon">📱</div>
+                            <div class="carousel-title">Stay Connected</div>
+                            <div class="carousel-description">Always share your location with trusted contacts when traveling alone.</div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-icon">🗺️</div>
+                            <div class="carousel-title">Plan Ahead</div>
+                            <div class="carousel-description">Use the Safe Route feature to choose well-lit, populated paths.</div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-icon">🔊</div>
+                            <div class="carousel-title">Be Prepared</div>
+                            <div class="carousel-description">Set up voice commands for hands-free emergency alerts.</div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-icon">⚠️</div>
+                            <div class="carousel-title">Trust Your Instincts</div>
+                            <div class="carousel-description">Activate your Safety Alarm if a situation feels unsafe.</div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-icon">👥</div>
+                            <div class="carousel-title">Community Support</div>
+                            <div class="carousel-description">Connect with other users for added safety.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev"><</button>
+                    <button class="carousel-btn next">></button>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Safety Timer</h3>
+                <p>Set a timer for activities. If not disabled in time, your emergency contacts will be alerted.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Location Sharing</h3>
+                <p>Share your live location with trusted contacts or set up scheduled updates.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <h3>Voice Activation</h3>
+                <p>Set custom voice commands to trigger emergency alerts hands-free.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Report Complaint</h3>
+                <p>Submit issues quickly and securely keeps it simple and action-oriented, implying an easy way to report something.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👀</div>
+                <h3>Women defence</h3>
+                <p> Learn safety measures, use secure practices, and seek help when needed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>Alert Calls</h3>
+                <p>Instantly reach out to trusted contacts for safety and support with a single tap.</p>
+            </div>
+        </div>
+
+        <div class="status-section">
+            <h2>Your Safety Status</h2>
+            <div class="status-row">
+                <div class="status-item">
+                    <div class="status-label">Current Status</div>
+                    <div class="status-value status-safe">Safe</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Safety Timer</div>
+                    <div class="status-value">Inactive</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Location Sharing</div>
+                    <div class="status-value">On</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Voice Commands</div>
+                    <div class="status-value">Enabled</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacts Tab -->
+    <div id="contacts" class="tab-content">
+        <div class="contacts-section">
+            <div class="section-header">
+                <h2>Trusted Contacts</h2>
+                <button class="add-btn">
+                    <span class="add-icon">+</span>
+                    Add Contact
+                </button>
+            </div>
+            <div class="contacts-list">
+                <div class="contact-card">
+                    <div class="contact-avatar">M</div>
+                    <div class="contact-info">
+                        <div class="contact-name">Mom</div>
+                        <div class="contact-relation">Family</div>
+                        <div class="contact-phone">+919059950488</div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-btn" onclick="window.location.href='tel:+919059950488';">📞</button>
+                        <button class="contact-btn">📱</button>
+                        <button class="contact-btn">✉️</button>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-avatar">D</div>
+                    <div class="contact-info">
+                        <div class="contact-name">Daddy</div>
+                        <div class="contact-relation">Family</div>
+                        <div class="contact-phone">+919948325042</div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-btn" onclick="window.location.href='tel:+919948325042';">📞</button>
+                        <button class="contact-btn">📱</button>
+                        <button class="contact-btn">✉️</button>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-avatar">A</div>
+                    <div class="contact-info">
+                        <div class="contact-name">Akka</div>
+                        <div class="contact-relation">Family</div>
+                        <div class="contact-phone">+919390252864</div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-btn" onclick="window.location.href='tel:+919390252864';">📞</button>
+                        <button class="contact-btn">📱</button>
+                        <button class="contact-btn">✉️</button>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-avatar">F</div>
+                    <div class="contact-info">
+                        <div class="contact-name">Friend</div>
+                        <div class="contact-relation">Roommate</div>
+                        <div class="contact-phone">+91 9059950488</div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-btn">📞</button>
+                        <button class="contact-btn">📱</button>
+                        <button class="contact-btn">✉️</button>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-avatar">P</div>
+                    <div class="contact-info">
+                        <div class="contact-name">Police</div>
+                        <div class="contact-relation">Emergency</div>
+                        <div class="contact-phone">100</div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-btn" onclick="window.location.href='tel:911';">📞</button>
+                        <button class="contact-btn">📱</button>
+                        <button class="contact-btn">✉️</button>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-avatar">A</div>
+                    <div class="contact-info">
+                        <div class="contact-name">Ambulance</div>
+                        <div class="contact-relation">Hospital</div>
+                        <div class="contact-phone">108</div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-btn">📞</button>
+                        <button class="contact-btn">📱</button>
+                        <button class="contact-btn">✉️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Tab -->
+    <div id="map" class="tab-content">
+        <div class="map-section">
+            <div class="section-header">
+                <h2>Safety Map</h2>
+            </div>
+            <div class="map-container">
+                <div id="map-area" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="map-controls">
+                <button class="map-control-btn">
+                    <span class="map-control-icon">🔍</span>
+                    Safe Routes
+                </button>
+                <button class="map-control-btn">
+                    <span class="map-control-icon">⚠️</span>
+                    Unsafe Areas
+                </button>
+                <button class="map-control-btn">
+                    <span class="map-control-icon">🚔</span>
+                    Police Stations
+                </button>
+                <button id="hospitals-btn" class="map-control-btn">
+                    <span class="map-control-icon">🏥</span>
+                    Hospitals
+                </button>
+                <button class="map-control-btn">
+                    <span class="map-control-icon">🔆</span>
+                    Safe Zones
+                </button>
+            </div>
+        </div>
+        <div class="status-section">
+            <h2>Location Settings</h2>
+            <div class="status-row">
+                <div class="status-item">
+                    <div class="status-label">Location Sharing</div>
+                    <div class="status-value status-safe">Active</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Last Updated</div>
+                    <div class="status-value">2 min ago</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Tracking Mode</div>
+                    <div class="status-value">Real-time</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Battery Impact</div>
+                    <div class="status-value">Medium</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div id="settings" class="tab-content">
+        <div class="settings-section">
+            <div class="section-header">
+                <h2>Application Settings</h2>
+            </div>
+            <div class="settings-list">
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">👤</div>
+                        <div class="settings-info">
+                            <h3>Profile Settings</h3>
+                            <p>Manage your personal information</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">🔔</div>
+                        <div class="settings-info">
+                            <h3>Notifications</h3>
+                            <p>Configure alert preferences</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">🔒</div>
+                        <div class="settings-info">
+                            <h3>Privacy & Security</h3>
+                            <p>Manage permissions and data sharing</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">⚙️</div>
+                        <div class="settings-info">
+                            <h3>Emergency Settings</h3>
+                            <p>Customize SOS functionality</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">🔋</div>
+                        <div class="settings-info">
+                            <h3>Battery Optimization</h3>
+                            <p>Adjust location tracking frequency</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">🌐</div>
+                        <div class="settings-info">
+                            <h3>Language & Region</h3>
+                            <p>Change app language and region settings</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">❓</div>
+                        <div class="settings-info">
+                            <h3>Help & Support</h3>
+                            <p>Contact support or view FAQs</p>
+                        </div>
+                    </div>
+                    <div class="settings-item-right">›</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active" onclick="showTab('home')">
+            <div class="nav-icon">🏠</div>
+            Home
+        </a>
+        <a href="#" class="nav-item" onclick="showTab('contacts')">
+            <div class="nav-icon">👥</div>
+            Contacts
+        </a>
+        <a href="#" class="nav-item" onclick="showTab('map')">
+            <div class="nav-icon">📍</div>
+            Map
+        </a>
+        <a href="#" class="nav-item" onclick="showTab('settings')">
+            <div class="nav-icon">⚙️</div>
+            Settings
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-icon">🔔</div>
+            Alerts
+        </a>
+    </div>
+      
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3>SafeGuard</h3>
+                <p>Empowering women with safety tools and community support. Stay safe, stay connected.</p>
+            </div>
+            
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Safety Tips</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: sashanksyba@gmail.com</p>
+                <p>Phone: +91 9550207745</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">🐦</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">▶️</a>
+                </div>
+            </div>
+            
+            <div class="footer-section subscribe">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for safety tips and updates.</p>
+                <form id="subscribeForm">
+                    <input type="email" id="subscribeEmail" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 SafeGuard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="footer.js"></script>
+
+    <!-- Google Maps API Script -->
+    <script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v6.8/mapsJavaScriptAPI.js"></script>
+   <script src="dashboard.js"></script>
+</body>
+</html>
